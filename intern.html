@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Senior Intern Registration - Health Network</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f0f8ff, #e1bee7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .heading {
+            text-align: center;
+        }
+        .registration-container {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            width: 600px;
+            max-width: 95%;
+            text-align: left;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+        }
+        .otp-button {
+            background: linear-gradient(135deg, #00695c, #00897b);
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9em;
+            cursor: pointer;
+            margin-top: 5px;
+            width: 100%;
+            text-align: center;
+        }
+        .btn-submit {
+            background: linear-gradient(135deg, #880e4f, #ad1457);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 18px rgba(136, 14, 79, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2 class="heading">Medical Senior Intern Registration</h2>
+        <form id="internRegistrationForm">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" required>
+                <button type="button" class="otp-button">Send OTP</button>
+            </div>
+            <div class="form-group">
+                <label for="emailOtp">Enter Email OTP *</label>
+                <input type="text" id="emailOtp" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" required>
+                <button type="button" class="otp-button">Send OTP</button>
+            </div>
+            <div class="form-group">
+                <label for="phoneOtp">Enter Phone OTP *</label>
+                <input type="text" id="phoneOtp" required>
+            </div>
+            <div class="form-group">
+                <label for="aadhaar">Aadhaar Number *</label>
+                <input type="text" id="aadhaar" required>
+            </div>
+            <div class="form-group">
+                <label for="pan">PAN Number *</label>
+                <input type="text" id="pan" required>
+            </div>
+            <div class="form-group">
+                <label for="university">Medical University *</label>
+                <input type="text" id="university" required>
+            </div>
+            <div class="form-group">
+                <label for="internshipHospital">Internship Hospital *</label>
+                <input type="text" id="internshipHospital" required>
+            </div>
+            <div class="form-group">
+                <label for="department">Department *</label>
+                <input type="text" id="department" required>
+            </div>
+            <div class="form-group">
+                <label for="experience">Experience (Years) *</label>
+                <input type="number" id="experience" required>
+            </div>
+            <div class="form-group">
+                <label for="research">Research & Publications (if any)</label>
+                <textarea id="research"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="location">Location *</label>
+                <input type="text" id="location" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="btn-submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
