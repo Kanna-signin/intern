@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Senior Intern Registration - Health Network</title>
+    <title>Medical Senior Intern Registration</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -24,7 +24,7 @@
             padding: 50px;
             border-radius: 15px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            width: 600px;
+            width: 700px;
             max-width: 95%;
             text-align: left;
             animation: fadeIn 1s ease-out;
@@ -35,6 +35,7 @@
         }
         .form-group {
             margin-bottom: 20px;
+            position: relative;
         }
         .form-group label {
             display: block;
@@ -42,26 +43,14 @@
             font-weight: 500;
             color: #555;
         }
-        .form-group input, .form-group select, .form-group textarea {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 1em;
         }
-        .otp-button {
-            background: linear-gradient(135deg, #00695c, #00897b);
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.9em;
-            cursor: pointer;
-            margin-top: 5px;
-            width: 100%;
-            text-align: center;
-        }
-        .btn-submit {
+        .otp-button,.btn-submit {
             background: linear-gradient(135deg, #880e4f, #ad1457);
             color: white;
             padding: 12px 20px;
@@ -74,16 +63,37 @@
             margin: 20px auto;
             text-align: center;
         }
-        .btn-submit:hover {
+        .otp-button:hover,.btn-submit:hover {
             transform: translateY(-3px);
             box-shadow: 0 7px 18px rgba(136, 14, 79, 0.4);
+        }
+        .toggle-password {
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+        }
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .password-container input {
+            flex: 1;
+            padding-right: 50px;
+        }
+        .end{
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="registration-container">
         <h2 class="heading">Medical Senior Intern Registration</h2>
-        <form id="internRegistrationForm">
+        <h3>Basic-Information</h3>
+        <form id="doctorRegistrationForm">
             <div class="form-group">
                 <label for="name">Full Name *</label>
                 <input type="text" id="name" required>
@@ -114,9 +124,33 @@
                 <label for="pan">PAN Number *</label>
                 <input type="text" id="pan" required>
             </div>
+            <div class="form-group password-container">
+                <label for="password">Password *</label>
+                <input type="password" id="password" required>
+                <span class="toggle-password" onclick="togglePassword()">👁</span>
+            </div>
+            
+            <!-- Academic & Professional Details -->
+            <h3>Academic & Professional Details</h3>
+            <div class="form-group">
+                <label for="qualification">Medical Degree/Qualification *</label>
+                <input type="text" id="qualification" required>
+            </div>
+            <div class="form-group">
+                <label for="graduationYear">Year of Graduation *</label>
+                <input type="text" id="graduationYear" required>
+            </div>
             <div class="form-group">
                 <label for="university">Medical University *</label>
                 <input type="text" id="university" required>
+            </div>
+            <div class="form-group">
+                <label for="registrationNumber">Medical Council Registration Number</label>
+                <input type="text" id="registrationNumber">
+            </div>
+            <div class="form-group">
+                <label for="councilName">Medical Council Name</label>
+                <input type="text" id="councilName">
             </div>
             <div class="form-group">
                 <label for="internshipHospital">Internship Hospital *</label>
@@ -128,22 +162,52 @@
             </div>
             <div class="form-group">
                 <label for="experience">Experience (Years) *</label>
-                <input type="number" id="experience" required>
+                <input type="text" id="experience" required>
             </div>
             <div class="form-group">
-                <label for="research">Research & Publications (if any)</label>
-                <textarea id="research"></textarea>
+                <label for="training">Specialized Training/Certifications</label>
+                <input type="text" id="training">
             </div>
             <div class="form-group">
-                <label for="location">Location *</label>
-                <input type="text" id="location" required>
+                <label for="interest">Areas of Interest</label>
+                <input type="text" id="interest">
             </div>
-            <div class="form-group">
-                <label for="password">Password *</label>
-                <input type="password" id="password" required>
-            </div>
+
+
+            
+            <h3>Work & Availability Details</h3>
+            <div class="form-group"><label for="workExperience">Previous Work Experience</label><input type="text" id="workExperience"></div>
+            <div class="form-group"><label for="availability">Availability *</label><select id="availability" required><option>Full-time</option><option>Part-time</option></select></div>
+            <div class="form-group"><label for="shift">Shift Preference *</label><select id="shift" required><option>Day</option><option>Night</option><option>Flexible</option></select></div>
+            
+            <h3>Personal Information</h3>
+            <div class="form-group"><label for="dob">Date of Birth *</label><input type="date" id="dob" required></div>
+            <div class="form-group"><label for="gender">Gender *</label><select id="gender" required><option>Male</option><option>Female</option><option>Other</option></select></div>
+            <div class="form-group"><label for="emergencyContact">Emergency Contact *</label><input type="text" id="emergencyContact" required></div>
+            <div class="form-group"><label for="location">Location *</label><input type="text" id="location" required></div>
+            
+            <h3>Documentation</h3>
+            <div class="form-group"><label for="resume">Upload Resume/CV *</label><input type="file" id="resume" required></div>
+            <div class="form-group"><label for="idProof">Upload ID Proof *</label><input type="file" id="idProof" required></div>
+            <div class="form-group end"><input type="checkbox" id="consent" required> <label for="consent">I agree to the data privacy policy</label></div>
+            
             <button type="submit" class="btn-submit">Register</button>
         </form>
     </div>
+
+    <script>
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        }
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
